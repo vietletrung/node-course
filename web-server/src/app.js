@@ -6,9 +6,12 @@ const { request } = require('http')
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
 
+const port = process.env.PORT | 3000
+
 const appPath = path.join(__dirname, '../Public')
 const viewPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
+
 
 console.log(partialsPath)
 
@@ -77,6 +80,6 @@ app.get('*', (req, res) => {
     res.send('404 Page not found!')
 })
 
-app.listen (3000, () => {
-    console.log('listening @ 3000')
+app.listen (port, () => {
+    console.log('listening @' + port)
 })
